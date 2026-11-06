@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Driver check-in | Pleasure Travels</title>
+  <meta name="theme-color" content="#E4241B">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-row"><span>Pleasure Travels - Check-in</span><button id="logout">Log out</button></div>
+  <h1>Driver check-in</h1>
+  <p>Scan a passenger QR code to verify boarding.</p>
+</header>
+
+<main class="wrap">
+  <section class="step">
+    <h2>Select trip</h2>
+    <select id="trip"><option value="">Choose a trip</option></select>
+  </section>
+
+  <section class="step">
+    <h2>Scan QR code</h2>
+    <div id="qr-reader" style="width:100%;max-width:340px;margin:0 auto;border:1.5px solid var(--line)"></div>
+    <button class="btn" id="start-scan" style="margin-top:.75rem">Start camera</button>
+    <button class="btn" id="stop-scan" style="margin-top:.5rem;background:#211E1C" hidden>Stop camera</button>
+  </section>
+
+  <section class="step">
+    <h2>Or enter code manually</h2>
+    <div class="field"><input type="text" id="manual" placeholder="e.g. PT-2026-A1B2" style="font-family:var(--font-mono);text-align:center;letter-spacing:2px;text-transform:uppercase"></div>
+    <button class="btn" id="manual-check">Verify code</button>
+  </section>
+
+  <section id="result"></section>
+
+  <section class="step">
+    <h2>Boarded on this trip</h2>
+    <ul class="mine" id="boarded"><li>No one boarded yet</li></ul>
+  </section>
+</main>
+
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script type="module" src="checkin.js"></script>
+</body>
+</html>

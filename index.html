@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pleasure Travels and Logistics | Sign in</title>
+  <meta name="theme-color" content="#E4241B">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="auth">
+  <header class="auth-brand">
+    <h1>Pleasure Travels<br>and Logistics</h1>
+    <p>Pick your seat, pay, and board with a QR code.</p>
+  </header>
+
+  <section class="auth-sheet">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-passenger" aria-selected="true">Passenger</button>
+      <button role="tab" id="tab-management" aria-selected="false">Management</button>
+    </div>
+
+    <div class="modes" id="modes">
+      <button id="mode-login" aria-selected="true">Log in</button>
+      <button id="mode-signup" aria-selected="false">Create account</button>
+    </div>
+
+    <div class="field" id="name-field" hidden>
+      <label for="name">Full name</label>
+      <input type="text" id="name" autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" autocomplete="email">
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" autocomplete="current-password" minlength="6">
+    </div>
+    <label class="check"><input type="checkbox" id="remember" checked> Remember me on this device</label>
+
+    <button class="btn" id="submit">Log in</button>
+    <p class="msg" id="msg" role="alert"></p>
+    <p class="hint" id="hint" hidden>Management and driver accounts are created by your administrator.</p>
+  </section>
+</main>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

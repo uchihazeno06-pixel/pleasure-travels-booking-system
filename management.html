@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Management | Pleasure Travels and Logistics</title>
+  <meta name="theme-color" content="#E4241B">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-row"><span>Pleasure Travels - Management</span><button id="logout">Log out</button></div>
+  <h1>Dashboard</h1>
+  <p id="season-line">Loading...</p>
+</header>
+
+<nav class="m-tabs" id="m-tabs">
+  <button data-tab="bookings" aria-selected="true">Bookings</button>
+  <button data-tab="routes">Routes</button>
+  <button data-tab="vehicles">Vehicles</button>
+  <button data-tab="trips">Trips</button>
+  <button data-tab="payments">Payments</button>
+  <button data-tab="settings">Season</button>
+</nav>
+
+<main class="wrap m-wrap">
+
+  <section class="m-panel" id="panel-bookings">
+    <div class="m-head">
+      <h2>Dispatch board</h2>
+      <p class="hint" style="margin:0">Click a trip to view its passenger manifest.</p>
+    </div>
+    <div class="dispatch" id="dispatch"></div>
+
+    <div class="manifest" id="manifest" hidden>
+      <div class="m-head">
+        <h3 id="manifest-title">Manifest</h3>
+        <div class="m-actions">
+          <button class="btn-sm" id="export-csv">Export CSV</button>
+          <button class="btn-sm" id="export-pdf">Export PDF</button>
+          <button class="btn-sm outline" id="close-manifest">Close</button>
+        </div>
+      </div>
+      <div id="manifest-body"></div>
+    </div>
+  </section>
+
+  <section class="m-panel" id="panel-routes" hidden>
+    <div class="m-head">
+      <h2>Routes</h2>
+      <button class="btn-sm" id="add-route">+ Add route</button>
+    </div>
+    <div id="routes-list" class="m-list"></div>
+  </section>
+
+  <section class="m-panel" id="panel-vehicles" hidden>
+    <div class="m-head">
+      <h2>Vehicles</h2>
+      <button class="btn-sm" id="add-vehicle">+ Add vehicle</button>
+    </div>
+    <div id="vehicles-list" class="m-list"></div>
+  </section>
+
+  <section class="m-panel" id="panel-trips" hidden>
+    <div class="m-head">
+      <h2>Trips</h2>
+      <button class="btn-sm" id="add-trip">+ Create trip</button>
+    </div>
+    <div id="trips-list" class="m-list"></div>
+  </section>
+
+  <section class="m-panel" id="panel-payments" hidden>
+    <div class="m-head">
+      <h2>Pending payments</h2>
+      <p class="hint" style="margin:0">Review manual transfer references and approve or reject.</p>
+    </div>
+    <div id="payments-list" class="m-list"></div>
+  </section>
+
+  <section class="m-panel" id="panel-settings" hidden>
+    <div class="m-head"><h2>Season settings</h2></div>
+    <div class="step">
+      <div class="field"><label for="s-pickup">Pickup point</label><input type="text" id="s-pickup" placeholder="e.g. All Boys and Girls Hostel"></div>
+      <div class="field"><label for="s-start">Booking start date</label><input type="date" id="s-start"></div>
+      <div class="field"><label for="s-end">Booking end date</label><input type="date" id="s-end"></div>
+      <button class="btn" id="save-season">Save season settings</button>
+      <p class="msg" id="s-msg"></p>
+    </div>
+  </section>
+
+</main>
+
+<div class="modal-bg" id="modal-bg" hidden>
+  <div class="modal">
+    <h3 id="modal-title">Edit</h3>
+    <div id="modal-body"></div>
+    <div class="m-actions" style="margin-top:1rem">
+      <button class="btn-sm outline" id="modal-cancel">Cancel</button>
+      <button class="btn-sm" id="modal-save">Save</button>
+    </div>
+    <p class="msg" id="modal-msg"></p>
+  </div>
+</div>
+
+<script type="module" src="management.js"></script>
+</body>
+</html>

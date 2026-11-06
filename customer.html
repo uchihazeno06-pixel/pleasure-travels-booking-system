@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a seat | Pleasure Travels and Logistics</title>
+  <meta name="theme-color" content="#E4241B">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-row"><span>Pleasure Travels</span><button id="logout">Log out</button></div>
+  <h1 id="hero-title">Book your seat</h1>
+  <p id="hero-sub">Loading season details...</p>
+</header>
+
+<main class="wrap">
+  <section class="step">
+    <h2>Your trip</h2>
+    <div class="field"><label for="route">Destination</label><select id="route"><option value="">Choose destination</option></select></div>
+    <div class="field"><label for="date">Travel date</label><select id="date" disabled><option value="">Choose destination first</option></select></div>
+    <div class="field"><label for="vehicle">Vehicle type</label><select id="vehicle" disabled><option value="">Choose a date first</option></select></div>
+    <label>Number of bags</label>
+    <div class="stepper"><button id="bag-minus" aria-label="Fewer bags">-</button><output id="bags">0</output><button id="bag-plus" aria-label="More bags">+</button></div>
+  </section>
+
+  <section class="step" id="seat-step" hidden>
+    <h2>Pick your seat</h2>
+    <div class="legend"><span><i style="background:#fff"></i>Available</span><span><i style="background:var(--red);border-color:var(--red)"></i>Selected</span><span><i style="background:#cfcac4;border-color:#cfcac4"></i>Booked</span></div>
+    <div id="seatmap"></div>
+  </section>
+
+  <section class="step">
+    <h2>Passenger details</h2>
+    <div class="field"><label for="pname">Full name</label><input type="text" id="pname" autocomplete="name"></div>
+    <div class="field"><label for="phone">Phone number</label><input type="text" id="phone" inputmode="tel" autocomplete="tel"></div>
+    <div class="field"><label for="address">Drop-off address</label><input type="text" id="address"></div>
+    <label class="check"><input type="checkbox" id="refund"> I have read and accept the refund policy</label>
+  </section>
+
+  <section class="step">
+    <h2>Payment</h2>
+    <div class="pay">
+      <label><input type="radio" name="pm" value="paystack" checked> Pay online with Paystack</label>
+      <label><input type="radio" name="pm" value="manual"> Bank transfer</label>
+    </div>
+    <div class="bank" id="bank" hidden>
+      <p>Transfer to <b id="b-bank"></b>, account <b id="b-num"></b> (<span id="b-name"></span>), then enter your transfer reference below. Your seat stays Pending until we confirm it.</p>
+      <div class="field" style="margin-top:.75rem"><label for="receiptRef">Transfer reference / teller number</label><input type="text" id="receiptRef" placeholder="e.g. TRF-123456789"></div>
+    </div>
+    <p class="msg" id="msg" role="alert"></p>
+  </section>
+
+  <section class="ticket" id="ticket" hidden>
+    <h2 id="t-title">Seat booked</h2>
+    <div id="qr"></div>
+    <div class="code" id="t-code"></div>
+    <p id="t-detail"></p>
+    <p class="hint" id="t-note"></p>
+  </section>
+
+  <section class="step">
+    <h2>My bookings</h2>
+    <ul class="mine" id="mine"><li>No bookings yet</li></ul>
+  </section>
+</main>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="bar-info"><span id="sum-seat">No seat selected</span><strong id="sum-price">NGN 0</strong><span id="sum-bags">0 bags</span></div>
+    <button class="btn" id="book" disabled>Book seat</button>
+  </div>
+</div>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script type="module" src="customer.js"></script>
+</body>
+</html>

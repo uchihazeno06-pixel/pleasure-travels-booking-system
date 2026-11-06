@@ -1,0 +1,21 @@
+{
+  "name": "Pleasure Travels and Logistics",
+  "short_name": "Pleasure Travels",
+  "description": "Book your seat, pay, and board with a QR code.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FBF9F6",
+  "theme_color": "#E4241B",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
